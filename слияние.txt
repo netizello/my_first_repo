@@ -1,6 +1,6 @@
-Attribute VB_Name = "Модуль1"
-Sub Слияние_строк()
-Attribute Слияние_строк.VB_ProcData.VB_Invoke_Func = " \n14"
+Attribute VB_Name = "Module1"
+Sub Row_Merge()
+Attribute Row_Merge.VB_ProcData.VB_Invoke_Func = " \n14"
 Dim Res, CellStr As String
 
 Sheets(ActiveSheet.Name).Activate
@@ -34,8 +34,8 @@ With Selection
 End With
 End Sub
 
-Sub Слияние_колонок()
-Attribute Слияние_колонок.VB_ProcData.VB_Invoke_Func = " \n14"
+Sub Column_Merge()
+Attribute Column_Merge.VB_ProcData.VB_Invoke_Func = " \n14"
 Dim Res, CellStr As String
 
 Sheets(ActiveSheet.Name).Activate
