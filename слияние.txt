@@ -1,0 +1,71 @@
+Attribute VB_Name = "Модуль1"
+Sub Слияние_строк()
+Attribute Слияние_строк.VB_ProcData.VB_Invoke_Func = " \n14"
+Dim Res, CellStr As String
+
+Sheets(ActiveSheet.Name).Activate
+With Selection
+  If .Count > 0 And .Count < 1001 Then
+    Application.Cursor = xlWait
+    For Each Column In .Columns
+        Res = ""
+        For Each Cell In Column.Cells
+          CellStr = CStr(Cell.Value)
+          If Len(RTrim(CellStr)) > 0 Then
+            If Len(Res) + Len(CellStr) < 255 Then
+              Res = Res + CellStr + " "
+              Cell.Value = ""
+            Else
+              Exit For
+            End If
+          End If
+        Next Cell
+        With Column.Cells(1, 1)
+            If Len(Res) > 0 Then
+                .Value = Res
+            End If
+            .WrapText = True
+            .HorizontalAlignment = xlLeft
+            .VerticalAlignment = xlTop
+        End With
+    Next Column
+    Application.Cursor = xlNormal
+  End If
+End With
+End Sub
+
+Sub Слияние_колонок()
+Attribute Слияние_колонок.VB_ProcData.VB_Invoke_Func = " \n14"
+Dim Res, CellStr As String
+
+Sheets(ActiveSheet.Name).Activate
+With Selection
+  If .Count > 0 And .Count < 1001 Then
+    Application.Cursor = xlWait
+    For Each Row In .Rows
+        Res = ""
+        For Each Cell In Row.Cells
+          CellStr = CStr(Cell.Value)
+          If Len(RTrim(CellStr)) > 0 Then
+            If Len(Res) + Len(CellStr) < 255 Then
+              Res = Res + CellStr + " "
+              Cell.Value = ""
+            Else
+              Exit For
+            End If
+          End If
+        Next Cell
+        With Row.Cells(1, 1)
+            If Len(Res) > 0 Then
+                .Value = Res
+            End If
+            .WrapText = True
+            .HorizontalAlignment = xlLeft
+            .VerticalAlignment = xlTop
+        End With
+    Next Row
+    Application.Cursor = xlNormal
+  End If
+End With
+End Sub
+
