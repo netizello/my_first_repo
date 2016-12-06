@@ -1,4 +1,4 @@
-Attribute VB_Name = "Модуль1"
+Attribute VB_Name = "Module1"
 Sub Row_Merge()
 Attribute Row_Merge.VB_ProcData.VB_Invoke_Func = " \n14"
 Dim Res, CellStr As String
